@@ -1,12 +1,14 @@
-import { Link, Navbar } from "./styles"
+import { Navbar } from "./styles"
 
-const TimepickerNavbar = ({ onChange }) => {
-  const setNowTime = () => {
-    onChange(new Date().getTime())
-  }
+const TimepickerNavbar = ({ onNowTimeSelect }) => {
   return <Navbar>
-    <a onClick={setNowTime}>Now</a>
+    <div>
+      <a onClick={onNowTimeSelect}>Now</a>
+    </div>
+    <div>
+      <button>OK</button>
+    </div>
   </Navbar>
-}
+};
 
 export default TimepickerNavbar;

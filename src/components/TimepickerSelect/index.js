@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { TIME_RANGES, UNITS_OF_TIME } from '../../constants/units';
-import { isUnitValid } from '../helpers/time.helper';
+import { TIME_RANGES } from '../../constants/units';
+import { getTimeRange, isUnitValid } from '../helpers/time.helper';
 import { Select, List } from './styles';
 
-const getTimeRange = unitOfTime => {
-  return unitOfTime === UNITS_OF_TIME.HOUR ?
-    TIME_RANGES.HOUR :
-    TIME_RANGES.MINUTES_OR_SECONDS;
-}
-
-const TimepickerSelect = ({ timeStep = 1, unitOfTime }) => {
+const TimepickerSelect = ({ timeStep = 1, unitOfTime, onSelect }) => {
   const [timeRange, setTimeRange] = useState(TIME_RANGES.MINUTES_OR_SECONDS);
   const [timeUnits, setTimeUnits] = useState([]);
 
@@ -45,7 +39,7 @@ const TimepickerSelect = ({ timeStep = 1, unitOfTime }) => {
     <List>
       {
         timeUnits.map((timeUnit, i) =>
-          <li key={i} className="time-unit">{timeUnit}</li>
+          <li key={i} className="time-unit" onClick={() => onSelect(timeUnit)}>{timeUnit}</li>
         )
       }
     </List>
