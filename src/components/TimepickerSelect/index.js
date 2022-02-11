@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { TIME_RANGES } from '../../constants/units';
-import { getTimeRange, isUnitValid } from '../helpers/time.helper';
+import { getTimeRange, isUnitValid } from '../../helpers/time.helper';
 import { Select, List } from './styles';
 
 const TimepickerSelect = ({ timeStep = 1, unitOfTime, onSelect }) => {
