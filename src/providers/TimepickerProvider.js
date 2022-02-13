@@ -12,25 +12,25 @@ const TimepickerProvider = ({ children }) => {
         // setActive(active => !active);
     }
 
-    const onHourSelect = hours => {
+    const onHourSelect = React.useCallback(hours => {
         setHours(hours);
-    }
+    }, [hours]);
 
-    const onMinutesSelect = minutes => {
+    const onMinutesSelect = React.useCallback(minutes => {
         setMinutes(minutes)
-    }
+    }, [minutes]);
 
-    const onSecondsSelect = seconds => {
+    const onSecondsSelect = React.useCallback(seconds => {
         setSeconds(seconds);
-    }
+    }, [seconds]);
 
-    const onNowTimeSelect = () => {
+    const onNowTimeSelect = React.useCallback(() => {
         const now = new Date();
 
         setHours(withZero(now.getHours()))
         setMinutes(withZero(now.getMinutes()))
         setSeconds(withZero(now.getSeconds()));
-    }
+    }, []);
 
     const timepickerInitialContext = {
         hours, minutes, seconds, active,
@@ -46,4 +46,4 @@ const TimepickerProvider = ({ children }) => {
     )
 }
 
-export default TimepickerProvider;
+export default React.memo(TimepickerProvider);
