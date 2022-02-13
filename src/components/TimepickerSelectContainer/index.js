@@ -16,7 +16,7 @@ const TimepickerSelectContainer = ({
         <TimepickerSelect unitOfTime={UNITS_OF_TIME.HOUR}
             timeStep={hoursTimeStep}
             onSelect={timepickerCtx.onHourSelect}
-        />Î
+        />
         <TimepickerSelect unitOfTime={UNITS_OF_TIME.MINUTE}
             timeStep={minutesTimeStep}
             onSelect={timepickerCtx.onMinutesSelect}

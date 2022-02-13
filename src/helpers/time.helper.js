@@ -13,3 +13,20 @@ export const getTimeRange = unitOfTime => {
 export const withZero = number => {
   return number <= 9 ? `0${number}` : number
 }
+
+export const getTimeUnitsList = (timeRange, timeStep) => {
+  const unitsList = []
+  const timeRangeStart = timeRange[0]
+  const timeRangeEnd = timeRange[1]
+
+  for (let i = timeRangeStart; i <= timeRangeEnd; i += timeStep) {
+    if (timeRangeEnd - i >= timeStep) {
+      unitsList.push(withZero(i));
+    } else {
+      unitsList.push(timeRangeEnd);
+      break;
+    }
+  }
+
+  return unitsList;
+}
