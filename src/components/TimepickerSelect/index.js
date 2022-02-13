@@ -39,7 +39,7 @@ const TimepickerSelect = ({ timeStep = 1, unitOfTime, onSelect }) => {
     <List>
       {
         timeUnits.map((timeUnit, i) =>
-          <li key={i} className="time-unit" onClick={() => onSelect(timeUnit)}>{timeUnit}</li>
+          <li key={i} onClick={() => onSelect(timeUnit)}>{timeUnit}</li>
         )
       }
     </List>

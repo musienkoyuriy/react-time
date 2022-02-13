@@ -1,4 +1,5 @@
 import * as React from 'react';
+import timepickerContext from '../../providers/timepickerContext';
 import { Input } from './styles';
 
 const TimepickerInput = ({
@@ -6,22 +7,21 @@ const TimepickerInput = ({
   onChange,
   onFocus,
   onBlur,
-  hours,
-  minutes,
-  seconds
 }) => {
   const [timeValue, setTimeValue] = React.useState('00:00:00');
+  const timepickerCtx = React.useContext(timepickerContext);
+  const { hours, minutes, seconds } = timepickerCtx;
 
   React.useEffect(() => {
     if (!hours && !minutes && !seconds) {
       return;
     }
 
-    hours = hours || '00';
-    minutes = minutes || '00';
-    seconds = seconds || '00';
+    const h = hours || '00';
+    const m = minutes || '00';
+    const s = seconds || '00';
 
-    setTimeValue(`${hours}:${minutes}:${seconds}`);
+    setTimeValue(`${h}:${m}:${s}`);
   }, [hours, minutes, seconds]);
 
   const onChangeHandler = (e) => {
@@ -30,7 +30,6 @@ const TimepickerInput = ({
     onChange(timeValue)
   }
 
-  console.log(timeValue);
   return <Input>
     <input type="text"
       value={timeValue}

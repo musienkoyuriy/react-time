@@ -1,9 +1,12 @@
+import * as React from 'react';
 import { Navbar } from "./styles"
+import timepickerContext from '../../providers/timepickerContext'
 
-const TimepickerNavbar = ({ onNowTimeSelect }) => {
+const TimepickerNavbar = _ => {
+  const timepickerCtx = React.useContext(timepickerContext);
   return <Navbar>
     <div>
-      <a onClick={onNowTimeSelect}>Now</a>
+      <a onClick={timepickerCtx.onNowTimeSelect}>Now</a>
     </div>
     <div>
       <button>OK</button>

@@ -1,31 +1,31 @@
+import * as React from "react";
 import { UNITS_OF_TIME } from "../../constants/units"
 import TimepickerSelect from "../TimepickerSelect"
 import TimepickerNavbar from '../TimepickerNavbar';
 import { Container } from "./styles";
+import timepickerContext from '../../providers/timepickerContext';
 
 const TimepickerSelectContainer = ({
     hoursTimeStep,
     minutesTimeStep,
-    secondsTimeStep,
-    onHourSelect,
-    onMinuteSelect,
-    onSecondSelect,
-    onNowTimeSelect
+    secondsTimeStep
 }) => {
+    const timepickerCtx = React.useContext(timepickerContext);
+
     return <Container>
         <TimepickerSelect unitOfTime={UNITS_OF_TIME.HOUR}
             timeStep={hoursTimeStep}
-            onSelect={onHourSelect}
-        />
+            onSelect={timepickerCtx.onHourSelect}
+        />Î
         <TimepickerSelect unitOfTime={UNITS_OF_TIME.MINUTE}
             timeStep={minutesTimeStep}
-            onSelect={onMinuteSelect}
+            onSelect={timepickerCtx.onMinutesSelect}
         />
         <TimepickerSelect unitOfTime={UNITS_OF_TIME.SECOND}
             timeStep={secondsTimeStep}
-            onSelect={onSecondSelect}
+            onSelect={timepickerCtx.onSecondsSelect}
         />
-        <TimepickerNavbar onNowTimeSelect={onNowTimeSelect}/>
+        <TimepickerNavbar />
     </Container>
 }
 
