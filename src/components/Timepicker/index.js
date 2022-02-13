@@ -5,11 +5,11 @@ import TimepickerInput from '../TimepickerInput';
 import TimepickerSelectContainer from '../TimepickerSelectContainer';
 import { TimePickerContainer } from './styles'
 
-const TimePicker = _ => {
+const TimePicker = ({ disabled }) => {
   const timepickerCtx = React.useContext(timepickerContext)
   return <TimepickerProvider>
     <TimePickerContainer>
-      <TimepickerInput />
+      <TimepickerInput disabled={disabled}/>
       {timepickerCtx.active && <TimepickerSelectContainer />}
     </TimePickerContainer>
   </TimepickerProvider>

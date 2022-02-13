@@ -7,6 +7,7 @@ const TimepickerInput = ({
   onChange,
   onFocus,
   onBlur,
+  disabled,
 }) => {
   const [timeValue, setTimeValue] = React.useState('00:00:00');
   const timepickerCtx = React.useContext(timepickerContext);
@@ -33,6 +34,7 @@ const TimepickerInput = ({
   return <Input>
     <input type="text"
       value={timeValue}
+      disabled={disabled}
       placeholder={placeholder}
       onChange={onChangeHandler}
       onFocus={onFocus}
