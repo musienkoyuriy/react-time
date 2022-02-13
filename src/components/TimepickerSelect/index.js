@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import { TIME_RANGES } from '../../constants/units';
 import { getTimeRange, isUnitValid } from '../../helpers/time.helper';
 import { Select, List } from './styles';
 
 const TimepickerSelect = ({ timeStep = 1, unitOfTime, onSelect }) => {
-  const [timeRange, setTimeRange] = useState(TIME_RANGES.MINUTES_OR_SECONDS);
-  const [timeUnits, setTimeUnits] = useState([]);
+  const [timeRange, setTimeRange] = React.useState(TIME_RANGES.MINUTES_OR_SECONDS);
+  const [timeUnits, setTimeUnits] = React.useState([]);
 
   function getTimeUnitsList(timeRange, timeStep) {
     const unitsList = []
@@ -24,14 +24,14 @@ const TimepickerSelect = ({ timeStep = 1, unitOfTime, onSelect }) => {
     return unitsList;
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!isUnitValid(unitOfTime)) {
       throw new Error(`Please provide a valid unit of time`);
     }
     setTimeRange(getTimeRange(unitOfTime))
   }, [unitOfTime]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setTimeUnits(getTimeUnitsList(timeRange, timeStep));
   }, [timeRange, timeStep]);
 

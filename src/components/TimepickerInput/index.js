@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react/cjs/react.development';
+import * as React from 'react';
 import { Input } from './styles';
 
 const TimepickerInput = ({
@@ -11,9 +10,9 @@ const TimepickerInput = ({
   minutes,
   seconds
 }) => {
-  const [timeValue, setTimeValue] = useState('00:00:00');
+  const [timeValue, setTimeValue] = React.useState('00:00:00');
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!hours && !minutes && !seconds) {
       return;
     }
@@ -21,7 +20,7 @@ const TimepickerInput = ({
     hours = hours || '00';
     minutes = minutes || '00';
     seconds = seconds || '00';
-    
+
     setTimeValue(`${hours}:${minutes}:${seconds}`);
   }, [hours, minutes, seconds]);
 

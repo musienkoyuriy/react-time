@@ -1,14 +1,14 @@
-import { useState } from 'react/cjs/react.development';
+import * as React from 'react';
 import { withZero } from '../../helpers/time.helper';
 import TimepickerInput from '../TimepickerInput';
 import TimepickerSelectContainer from '../TimepickerSelectContainer';
 import { TimePickerContainer } from './styles'
 
 const TimePicker = _ => {
-  const [active, setActive] = useState(true);
-  const [hours, setHours] = useState('');
-  const [minutes, setMinutes] = useState('')
-  const [seconds, setSeconds] = useState('')
+  const [active, setActive] = React.useState(true);
+  const [hours, setHours] = React.useState('');
+  const [minutes, setMinutes] = React.useState('')
+  const [seconds, setSeconds] = React.useState('')
 
   const onFocusToggle = () => {
     // setActive(active => !active);
