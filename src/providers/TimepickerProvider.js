@@ -46,4 +46,4 @@ const TimepickerProvider = ({ children }) => {
     )
 }
 
-export default React.memo(TimepickerProvider);
+export default TimepickerProvider;

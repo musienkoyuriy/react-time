@@ -14,4 +14,4 @@ const TimepickerNavbar = _ => {
   </Navbar>
 };
 
-export default TimepickerNavbar;
+export default React.memo(TimepickerNavbar);
